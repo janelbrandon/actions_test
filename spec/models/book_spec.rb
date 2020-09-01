@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Book, type: :model do
+  subject { Book.new(title: 'Test Book', price: 1999) }
   context 'model has the correct attributes' do
     context '#title' do
       it 'exists' do

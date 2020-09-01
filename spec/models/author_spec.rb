@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Author, type: :model do
+  subject { Author.new(name: 'Jim')}
   context 'model has the correct attributes' do
     context '#name' do
       it 'exists' do
