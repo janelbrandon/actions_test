@@ -1,7 +1,7 @@
 name: New Fork
 on: fork
 jobs: 
-  name: 'Update Fork Status'
+  name: Update Fork Status
   runs_on: ubuntu_latest
   steps:
   - uses: satak/webrequest-action@master
