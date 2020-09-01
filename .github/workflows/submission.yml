@@ -37,7 +37,8 @@ jobs:
           bundler exec rails db:create
           bundler exec rails db:migrate
       - name: Status Check
-        env: GITHUB_CONTEXT: ${{ toJson(github) }}
+        env: 
+          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Run RSpec tests
         run: bin/rspec
