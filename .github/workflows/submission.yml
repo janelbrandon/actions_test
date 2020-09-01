@@ -26,6 +26,7 @@ jobs:
         run: |
           gem install bundler
           bundler install
+          yarn install --check-files
       - name: Create Database
         run: |
           RAILS_ENV=test
