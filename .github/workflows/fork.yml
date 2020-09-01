@@ -1,13 +1,14 @@
 name: New Fork
 on: fork
 jobs: 
-  name: Update Fork Status
-  runs_on: ubuntu_latest
-  steps:
-  - uses: satak/webrequest-action@master
-    with:
-      url: https://quiet-taiga-51315.herokuapp.com/challenge_attempts/1
-      method: PATCH
-      payload: '{"student": "${{ github.actor }}", "status": "forked", "challenge": ${{ github.repository }} }'
-      headers: '{"Authentication": "Token ${{ secrets.ACTION_TOKEN }}"}'
+  one:
+    name: Update Fork Status
+    runs_on: ubuntu_latest
+    steps:
+    - uses: satak/webrequest-action@master
+      with:
+        url: https://quiet-taiga-51315.herokuapp.com/challenge_attempts/1
+        method: PATCH
+        payload: '{"student": "${{ github.actor }}", "status": "forked", "challenge": ${{ github.repository }} }'
+        headers: '{"Authentication": "Token ${{ secrets.ACTION_TOKEN }}"}'
   
