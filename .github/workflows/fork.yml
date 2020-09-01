@@ -10,5 +10,5 @@ jobs:
         url: ${{ secrets.ACTION_URL }}
         method: PATCH
         payload: '{"student": "${{ github.actor }}", "status": "forked", "challenge": "${{ github.repository }}" }'
-        headers: '{"Authentication": "Token ${{ secrets.ACTION_TOKEN }}"}'
+        headers: '{"Authentication": "Token 03c8a388592822444827dda3968c544d120462aa629d78fe40e9c07cfb3c3b9601a380919082f93ad0670f5c264c19eceb4c27b609c0668a69429ef83fd60535"}'
   
