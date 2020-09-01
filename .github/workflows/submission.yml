@@ -3,7 +3,7 @@ on: pull_request
 jobs: 
   one:
     # Only run the action against the base repo 
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    #if: github.event.pull_request.head.repo.full_name == github.repository
     name: Update Challenge Status
     runs-on: ubuntu-latest
     services:
