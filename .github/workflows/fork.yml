@@ -9,6 +9,6 @@ jobs:
       with:
         url: ${{ secrets.ACTION_URL }}
         method: PATCH
-        payload: '{"student": "${{ github.actor }}", "status": "forked", "challenge": ${{ github.repository }} }'
+        payload: '{"student": "${{ github.actor }}", "status": "forked", "challenge": "${{ github.repository }}" }'
         headers: '{"Authentication": "Token ${{ secrets.ACTION_TOKEN }}"}'
   
