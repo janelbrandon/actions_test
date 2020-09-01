@@ -3,11 +3,11 @@ on: fork
 jobs: 
   one:
     name: Update Fork Status
-    runs-on: ubuntu_latest
+    runs-on: ubuntu-latest
     steps:
     - uses: satak/webrequest-action@master
       with:
-        url: https://quiet-taiga-51315.herokuapp.com/challenge_attempts/1
+        url: ${{ secrects.ACTION_URL }}
         method: PATCH
         payload: '{"student": "${{ github.actor }}", "status": "forked", "challenge": ${{ github.repository }} }'
         headers: '{"Authentication": "Token ${{ secrets.ACTION_TOKEN }}"}'
