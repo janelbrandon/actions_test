@@ -3,7 +3,7 @@ on: fork
 jobs: 
   one:
     name: Update Fork Status
-    runs_on: ubuntu_latest
+    runs-on: ubuntu_latest
     steps:
     - uses: satak/webrequest-action@master
       with:
