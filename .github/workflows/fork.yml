@@ -7,4 +7,4 @@ jobs:
     steps:
     - uses: wei/curl@v1 
       with:
-        args: -XPATCH -H 'Authorization: Token ${{ secrets.ACTION_TOKEN }}' -H "Content-type: application/json" -d '{"student": "${{ github.actor }}", "challenge": "${{ github.repository }}", "status": "forked"}' '${{ secrets.ACTION_URL }}'
+        args: '-X PATCH -H ''Authorization: Token ${{ secrets.ACTION_TOKEN }}'' \ -H "Content-type: application/json" -d ''{"student": "${{ github.actor }}", "challenge": "${{ github.repository }}", "status": "forked"}'' ''${{ secrets.ACTION_URL }}'''
