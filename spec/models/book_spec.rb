@@ -7,7 +7,7 @@ RSpec.describe Book, type: :model do
         expect(subject).to respond_to :title
       end
       it 'is a string' do
-        expect(subject).to be_a String
+        expect(subject.title).to be_a String
       end
     end
     
@@ -16,14 +16,14 @@ RSpec.describe Book, type: :model do
         expect(subject).to respond_to :price
       end
       it 'is an Integer' do
-        expect(subject).to be_an Integer
-      end
+        expect(subject.price).to be_an Integer
+      end 
     end
   end
 
   context 'model has the correct associations' do
     it 'belongs to an author' do
-      relation = Product.reflect_on_association(:author)
+      relation = Book.reflect_on_association(:author)
       expect(relation.macro).to eql(:belongs_to)
     end
   end

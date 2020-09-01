@@ -12,6 +12,7 @@ To setup the project you will need to...
 
 1. Fork this repository to your personal github account.
 2. Clone the forked repository to your computer
+3. Update yarn packages `yarn install --checkfiles`
 3. `bundle install`
 4. Create a local database `rails db:create`
 
