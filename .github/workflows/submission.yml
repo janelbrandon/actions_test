@@ -39,10 +39,9 @@ jobs:
       - name: Status Check
         env: 
           GITHUB_CONTEXT: ${{ toJson(steps) }}
-          STATUS: ${{ steps }}
         run: |
           echo "$GITHUB_CONTEXT"
-          echo "$STATUS"
+          cat ${{ steps }}
       - name: RSpecTest
         continue-on-error: true
         run: bin/rspec
