@@ -45,7 +45,6 @@ jobs:
         continue-on-error: true
         run: bin/rspec
       - name: Tests Failed
-        env
         if: steps.rspec-tests.outcome == 'failure'
         uses: wei/curl@v1 
         with:
