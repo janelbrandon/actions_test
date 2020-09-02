@@ -39,7 +39,7 @@ jobs:
       - name: Status Check
         env: 
           GITHUB_CONTEXT: ${{ toJson(steps) }}
-          STATUS: ${{ job.status }}
+          STATUS: ${{ steps }}
         run: |
           echo "$GITHUB_CONTEXT"
           echo "$STATUS"
@@ -47,7 +47,7 @@ jobs:
         continue-on-error: true
         run: bin/rspec
       - name: Tests Failed
-        if: steps.RSpecTests.outcome == 'failure'
+        if: steps.a.outcome == 'failure'
         uses: wei/curl@v1 
         with:
           args: '-X PATCH -H ''Authorization: Token ${{ secrets.ACTION_TOKEN }}'' ''https://quiet-taiga-51315.herokuapp.com/challenge_attempts/1?student=${{ github.actor }}&challenge=${{ github.repository }}&status=attempted'''
