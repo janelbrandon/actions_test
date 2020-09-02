@@ -45,12 +45,11 @@ jobs:
           echo "$STATUS"
       - name: Run RSpec tests
         run: bin/rspec
-      - if: job.status == 'failure'
         uses: wei/curl@v1 
+        if: job.status == 'failure'
         with:
           args: '-X PATCH -H ''Authorization: Token ${{ secrets.ACTION_TOKEN }}'' ''https://quiet-taiga-51315.herokuapp.com/challenge_attempts/1?student=${{ github.actor }}&challenge=${{ github.repository }}&status=attempted'''
-      - if: job.status == 'success'
-        uses: wei/curl@v1 
+        if: job.status == 'success'
         with:
           args: '-X PATCH -H ''Authorization: Token ${{ secrets.ACTION_TOKEN }}'' ''https://quiet-taiga-51315.herokuapp.com/challenge_attempts/1?student=${{ github.actor }}&challenge=${{ github.repository }}&status=attempted'''
 
