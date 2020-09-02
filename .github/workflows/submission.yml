@@ -39,7 +39,10 @@ jobs:
       - name: Status Check
         env: 
           GITHUB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$GITHUB_CONTEXT"
+          STATUS: ${{ job.status }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+          echo "$STATUS"
       - name: Run RSpec tests
         run: bin/rspec
       - if: job.status == 'failure'
