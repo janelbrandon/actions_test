@@ -38,20 +38,20 @@ jobs:
           bundler exec rails db:migrate
       - name: Status Check
         env: 
-          GITHUB_CONTEXT: ${{ toJson(job) }}
+          GITHUB_CONTEXT: ${{ toJson(steps) }}
           STATUS: ${{ job.status }}
         run: |
           echo "$GITHUB_CONTEXT"
           echo "$STATUS"
-      - name: Run RSpec tests
+      - name: RSpecTest
         run: bin/rspec
       - name: Tests Failed
-        if: failed() 
+        if: steps.RSpecTests.outcome == 'failure'
         uses: wei/curl@v1 
         with:
           args: '-X PATCH -H ''Authorization: Token ${{ secrets.ACTION_TOKEN }}'' ''https://quiet-taiga-51315.herokuapp.com/challenge_attempts/1?student=${{ github.actor }}&challenge=${{ github.repository }}&status=attempted'''
       - name: Tests Success
-        if: succeeded()
+        if: steps.RSpecTests.outcome == 'success'
         uses: wei/curl@v1 
         with:
           args: '-X PATCH -H ''Authorization: Token ${{ secrets.ACTION_TOKEN }}'' ''https://quiet-taiga-51315.herokuapp.com/challenge_attempts/1?student=${{ github.actor }}&challenge=${{ github.repository }}&status=attempted'''
